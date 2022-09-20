@@ -1,9 +1,8 @@
 const Button = (props) => {
-    const {placeholder} = props
-    console.log(placeholder)
+    const { id, value, className} = props
     return(
-        <div className="button">
-            {placeholder}
+        <div id={id} className={className}>
+            {value}
         </div>
     )
 }

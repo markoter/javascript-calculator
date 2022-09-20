@@ -1,7 +1,9 @@
-const Button = () => {
+const Button = (props) => {
+    const {placeholder} = props
+    console.log(placeholder)
     return(
-        <div id="button">
-            this is button
+        <div className="button">
+            {placeholder}
         </div>
     )
 }

@@ -1,9 +1,18 @@
 import Button from "./Button"
 const Keyboard = () => {
-    return(
+
+    const buttons = [...Array(20).keys()]
+    return (
         <div id="keyboard">
-            this is keyboard
-            <Button />
+            {
+                buttons.map((button) => (
+                    <Button
+                    key={button}
+                    placeholder={button}
+                    />
+                ))
+            }
+
         </div>
     )
 }

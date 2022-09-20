@@ -1,3 +1,15 @@
+:root {
+  --color-calculator: black;
+  --color-screen: green;
+  --color-button: gray;
+  --color-keyboard: white;
+  --color-background: aqua;
+  --color-text-display: white;
+  --color-text-formula: orange;
+
+
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,12 +17,56 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 * {
-  border: 2px solid black;
+  // border: 2px solid black;
+}
+
+#calculator {
+  background-color: var(--color-calculator);
+  padding: 10px;
+  width: 30vw;
+  height: 80vh;
+
+  #screen {
+    font-size: 2rem;
+    background-color: var(--color-screen);
+    margin-bottom: 10px;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px 10px;
+    text-align: right;
+
+    #formula {
+      color: var(--color-text-formula);
+    }
+
+    #display {
+      color: var(--color-text-display);
+    }
+  }
+
+  #keyboard {
+    //background-color: var(--color-keyboard);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 50vh;
+
+    .button {
+      font-size: 3rem;
+      background-color: var(--color-button);
+      margin: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
 }

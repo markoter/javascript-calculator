@@ -4,9 +4,8 @@ import Display from "./Display"
 const Screen = () => {
     return(
         <div id="screen">
-            this is screen
-            <Display />
             <Formula />
+            <Display />
         </div>
     )
 }

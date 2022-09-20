@@ -7,4 +7,8 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+* {
+  border: 2px solid black;
 }/*# sourceMappingURL=index.css.map */

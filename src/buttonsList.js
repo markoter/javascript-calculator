@@ -1,43 +1,18 @@
 const buttons = [
     {
-        id: "equals",
-        value: "=",
+        id: "clear",
+        value: "clear",
         className: "button"
+    },  
+    {
+        id: "divide",
+        value: "/",
+        className: "button operator"
     },
     {
-        id: "zero",
-        value: "0",
-        className: "button number"
-    },
-    {
-        id: "one",
-        value: "1",
-        className: "button number"
-    },
-    {
-        id: "two",
-        value: "2",
-        className: "button number"
-    },
-    {
-        id: "three",
-        value: "3",
-        className: "button number"
-    },
-    {
-        id: "four",
-        value: "4",
-        className: "button number"
-    },
-    {
-        id: "five",
-        value: "5",
-        className: "button number"
-    },
-    {
-        id: "six",
-        value: "6",
-        className: "button number"
+        id: "multiply",
+        value: "*",
+        className: "button operator"
     },
     {
         id: "seven",
@@ -55,8 +30,23 @@ const buttons = [
         className: "button number"
     },
     {
-        id: "decimal",
-        value: ".",
+        id: "subtract",
+        value: "-",
+        className: "button operator"
+    },
+    {
+        id: "four",
+        value: "4",
+        className: "button number"
+    },
+    {
+        id: "five",
+        value: "5",
+        className: "button number"
+    },
+    {
+        id: "six",
+        value: "6",
         className: "button number"
     },
     {
@@ -65,25 +55,34 @@ const buttons = [
         className: "button operator"
     },
     {
-        id: "subtract",
-        value: "-",
-        className: "button operator"
+        id: "one",
+        value: "1",
+        className: "button number"
     },
     {
-        id: "multiply",
-        value: "*",
-        className: "button operator"
+        id: "two",
+        value: "2",
+        className: "button number"
     },
     {
-        id: "divide",
-        value: "/",
-        className: "button operator"
+        id: "three",
+        value: "3",
+        className: "button number"
     },
     {
-        id: "clear",
-        value: "clear",
+        id: "equals",
+        value: "=",
         className: "button"
+    },
+    {
+        id: "zero",
+        value: "0",
+        className: "button number"
+    },
+    {
+        id: "decimal",
+        value: ".",
+        className: "button number"
     }
 ]
-
 export default buttons

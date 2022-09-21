@@ -1,7 +1,10 @@
 :root {
   --color-calculator: black;
   --color-screen: green;
-  --color-button: gray;
+  --color-button: lightgray;
+  --color-button-operators: gray;
+  --color-button-clear: red;
+  --color-button-equals: blue;
   --color-keyboard: white;
   --color-background: aqua;
   --color-text-display: white;
@@ -70,8 +73,15 @@ body {
     #clear, #zero {
       grid-column: span 2;
     }
+    #clear {
+      background-color: var(--color-button-clear);
+    }
     #equals {
       grid-row: span 2;
+      background-color: var(--color-button-equals);
+    }
+    .operator {
+      background-color: var(--color-button-operators);
     }
   }
 

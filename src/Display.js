@@ -1,8 +1,8 @@
-const Display = () => {
+const Display = (props) => {
+    const {currentVal} = props
     return(
         <div id="display">
-            this is display
-           
+           {currentVal}
         </div>
     )
 }

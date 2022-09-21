@@ -1,11 +1,12 @@
 import Formula from "./Formula"
 import Display from "./Display"
 
-const Screen = () => {
+const Screen = (props) => {
+    const {formula, currentVal} = props
     return(
         <div id="screen">
-            <Formula />
-            <Display />
+            <Formula formula={formula}/>
+            <Display currentVal={currentVal}/>
         </div>
     )
 }

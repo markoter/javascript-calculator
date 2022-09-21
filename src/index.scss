@@ -30,8 +30,8 @@ body {
 #calculator {
   background-color: var(--color-calculator);
   padding: 10px;
-  width: 30vw;
-  height: 80vh;
+  width: 40vw;
+  height: 90vh;
 
   #screen {
     font-size: 2rem;
@@ -56,7 +56,7 @@ body {
   #keyboard {
     //background-color: var(--color-keyboard);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     height: 50vh;
 
     .button {
@@ -66,6 +66,12 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    #clear, #zero {
+      grid-column: span 2;
+    }
+    #equals {
+      grid-row: span 2;
     }
   }
 

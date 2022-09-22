@@ -3,7 +3,6 @@ const buttons = [
         id: "clear",
         value: "clear",
         className: "button",
-        onClick: "handleClearButton"
     },  
     {
         id: "divide",

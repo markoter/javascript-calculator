@@ -1,7 +1,11 @@
 const Button = (props) => {
-    const { id, value, className, onClick} = props
+    const { id, value, className, handleButtonClick} = props
     return(
-        <div id={id} className={className} onClick={onClick}>
+        <div 
+        id={id} 
+        className={className} 
+        onClick={() => handleButtonClick(className, value)}
+        >
             {value}
         </div>
     )

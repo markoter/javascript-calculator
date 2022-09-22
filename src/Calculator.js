@@ -6,15 +6,15 @@ const Calculator = () => {
     const [formula, changeFormula] = useState('')
     const [currentVal, changeCurrentVal] = useState('0')
 
-    const handleNumericButton = (buttonVal) => {
+    const handleNumericButton = (buttonVal, optionalZero = '') => {
         // console.log(`hit num butt with val: ${buttonVal}`)
-        if (currentVal == 0) {
-            changeCurrentVal(buttonVal)
+        if (['0', '+', '-', '*', '/'].includes(currentVal)) {
+            changeCurrentVal(optionalZero + buttonVal)
         }
         else {
             changeCurrentVal(currentVal.concat(buttonVal))
         }
-        changeFormula(formula.concat(buttonVal))
+        changeFormula(formula.concat(optionalZero + buttonVal))
     }
     const handleOperatorButton = (buttonVal) => {
         // console.log(`hit oper butt with val: ${buttonVal}`)
@@ -33,6 +33,15 @@ const Calculator = () => {
         // changeFormula(formula.concat('=' + result))
         // console.log(result)
     }
+    const handleDecimal = () => {
+  
+        const buttonVal = '.'
+        if (currentVal.includes(buttonVal) === false) {
+            console.log('no dot')
+            handleNumericButton(buttonVal, 0)
+        }
+         
+    }
     return(
         <div id="calculator">
             <p id="calcName">Calculator Online JS</p>
@@ -42,6 +51,7 @@ const Calculator = () => {
             handleNumericButton={handleNumericButton}
             handleOperatorButton={handleOperatorButton}
             handleEquals={handleEquals}
+            handleDecimal={handleDecimal}
             />
         </div>
     )

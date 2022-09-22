@@ -1,12 +1,17 @@
 import Button from "./Button"
 import buttons from "./buttonsList"
 const Keyboard = (props) => {
-    const {handleClearButton, handleNumericButton, handleOperatorButton, handleEquals} = props
+    const {handleClearButton, handleNumericButton, handleOperatorButton, handleEquals, handleDecimal} = props
 
     const handleButtonClick = (className, value) => {
         //console.log(`clicked button with class: ${className} value: ${value}`)
         if (className.includes("number")) {
-            handleNumericButton(value)
+            if (value === '.'){
+                handleDecimal()
+            }
+            else {
+                handleNumericButton(value)
+            }
         }
         else if (className.includes("operator")){
             handleOperatorButton(value)

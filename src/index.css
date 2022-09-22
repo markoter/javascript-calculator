@@ -9,6 +9,7 @@
   --color-background: aqua;
   --color-text-display: white;
   --color-text-formula: orange;
+  --color-text-buttons: white;
 }
 
 body {
@@ -23,10 +24,14 @@ body {
 }
 
 #calculator {
+  color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;
   width: 40vw;
-  height: 90vh;
+  height: fit-content;
+}
+#calculator #calcName {
+  text-align: center;
 }
 #calculator #screen {
   font-size: 2rem;
@@ -48,7 +53,7 @@ body {
 #calculator #keyboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 50vh;
+  height: 60vh;
 }
 #calculator #keyboard .button {
   font-size: 3rem;
@@ -58,7 +63,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-#calculator #keyboard #clear, #calculator #keyboard #zero {
+#calculator #keyboard #clear,
+#calculator #keyboard #zero {
   grid-column: span 2;
 }
 #calculator #keyboard #clear {

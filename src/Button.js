@@ -1,7 +1,7 @@
 const Button = (props) => {
-    const { id, value, className} = props
+    const { id, value, className, onClick} = props
     return(
-        <div id={id} className={className}>
+        <div id={id} className={className} onClick={onClick}>
             {value}
         </div>
     )

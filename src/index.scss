@@ -9,6 +9,7 @@
   --color-background: aqua;
   --color-text-display: white;
   --color-text-formula: orange;
+  --color-text-buttons: white;
 
 
 }
@@ -31,10 +32,15 @@ body {
 }
 
 #calculator {
+  color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;
   width: 40vw;
-  height: 90vh;
+  height: fit-content;
+
+  #calcName {
+    text-align: center;
+  }
 
   #screen {
     font-size: 2rem;
@@ -60,7 +66,7 @@ body {
     //background-color: var(--color-keyboard);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    height: 50vh;
+    height: 60vh;
 
     .button {
       font-size: 3rem;
@@ -70,16 +76,21 @@ body {
       justify-content: center;
       align-items: center;
     }
-    #clear, #zero {
+
+    #clear,
+    #zero {
       grid-column: span 2;
     }
+
     #clear {
       background-color: var(--color-button-clear);
     }
+
     #equals {
       grid-row: span 2;
       background-color: var(--color-button-equals);
     }
+
     .operator {
       background-color: var(--color-button-operators);
     }

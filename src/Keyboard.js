@@ -1,6 +1,7 @@
 import Button from "./Button"
 import buttons from "./buttonsList"
-const Keyboard = () => {
+const Keyboard = (props) => {
+    const {handleClearButton} = props
 
     
     return (
@@ -12,6 +13,7 @@ const Keyboard = () => {
                     id={button.id}
                     value={button.value}
                     className={button.className}
+                    onClick={button.onClick}
                     />
                 ))
             }

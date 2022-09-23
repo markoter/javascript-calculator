@@ -2,23 +2,96 @@ import { useState } from "react"
 import Keyboard from "./Keyboard"
 import Screen from "./Screen"
 
+const testPrinterSwitch = true
+const testPrinter = (message) => {
+    if (testPrinterSwitch) {
+        console.log('hit place number: ' + message)
+    }
+}
+
 const Calculator = () => {
     const [formula, changeFormula] = useState('')
     const [currentVal, changeCurrentVal] = useState('0')
 
-    const handleNumericButton = (buttonVal, optionalZero = '') => {
-        // console.log(`hit num butt with val: ${buttonVal}`)
-        if (['0', '+', '-', '*', '/'].includes(currentVal)) {
-            changeCurrentVal(optionalZero + buttonVal)
+    const handleNumericButton = (buttonVal) => {
+        const isDecimalAlready = (currentVal.includes('.'))
+        const isButtonDecimal = (buttonVal === '.')
+        const isButtonZero = (buttonVal === '0')
+        if (!isDecimalAlready) {
+            testPrinter('1')
+            if (!isButtonDecimal) {
+                testPrinter('1-1')
+                if (['+', '-', '*', '/'].includes(currentVal)) {
+                    testPrinter('1-1-1')
+                    changeCurrentVal(buttonVal)
+                    changeFormula(formula.concat(buttonVal))
+
+                }
+                else if (currentVal === '0') {
+                    testPrinter('1-1-2')
+                    changeCurrentVal(buttonVal)
+                    if (!isButtonZero) {
+                        testPrinter('1-1-2-1')
+                        changeFormula(formula.concat(buttonVal))
+                    }
+                }
+                else {
+                    testPrinter('1-1-3')
+                    changeCurrentVal(currentVal.concat(buttonVal))
+                    changeFormula(formula.concat(buttonVal))
+                }
+            }
+            else { //not decimalAlready and button is Decimal
+                testPrinter('1-2')
+                if (['+', '-', '*', '/'].includes(currentVal)) {
+                    testPrinter('1-2-1')
+                    changeCurrentVal('0' + buttonVal)
+                    changeFormula(formula.concat('0' + buttonVal))
+
+                }
+                else if (currentVal === '0') {
+                    testPrinter('1-2-2')
+                    changeCurrentVal('0' + buttonVal)
+                    if (formula.charAt(formula.length - 1) === '0') {
+                        testPrinter('1-2-2-1')
+                        changeFormula(formula.concat(buttonVal))
+                    }
+                    else {
+                        testPrinter('1-2-2-2')
+                        changeFormula(formula.concat('0' + buttonVal))
+                    }
+                }
+                else {
+                    testPrinter('1-2-3')
+                    changeCurrentVal(currentVal.concat(buttonVal))
+                    changeFormula(formula.concat(buttonVal))
+                }
+            }
+
         }
         else {
-            optionalZero = ''
-            changeCurrentVal(currentVal.concat(buttonVal))
+            testPrinter('2')
+            //decimal already
+            if (!isButtonDecimal) {
+                testPrinter('2-1')
+                if (['+', '-', '*', '/'].includes(currentVal)) {
+                    changeCurrentVal(buttonVal)
+                    changeFormula(formula.concat(buttonVal))
+
+                }
+                else if (currentVal === '0') {
+                    testPrinter('2-2')
+                    changeCurrentVal(buttonVal)
+                    changeFormula(formula.concat(buttonVal))
+                }
+                else {
+                    testPrinter('2-3')
+                    changeCurrentVal(currentVal.concat(buttonVal))
+                    changeFormula(formula.concat(buttonVal))
+                }
+            }
+
         }
-        if (formula.charAt(formula.length -1) === '0'){
-            optionalZero = ''
-        }
-        changeFormula(formula.concat(optionalZero + buttonVal))
     }
     const handleOperatorButton = (buttonVal) => {
         // console.log(`hit oper butt with val: ${buttonVal}`)
@@ -37,24 +110,15 @@ const Calculator = () => {
         // changeFormula(formula.concat('=' + result))
         // console.log(result)
     }
-    const handleDecimal = () => {
-        const buttonVal = '.'
-        if (!currentVal.includes(buttonVal)) {
-            console.log('no dot')
-            handleNumericButton(buttonVal, 0)
-        }
-         
-    }
-    return(
+    return (
         <div id="calculator">
             <p id="calcName">Calculator Online JS</p>
-            <Screen formula={formula} currentVal={currentVal}/>
-            <Keyboard 
-            handleClearButton={handleClearButton}
-            handleNumericButton={handleNumericButton}
-            handleOperatorButton={handleOperatorButton}
-            handleEquals={handleEquals}
-            handleDecimal={handleDecimal}
+            <Screen formula={formula} currentVal={currentVal} />
+            <Keyboard
+                handleClearButton={handleClearButton}
+                handleNumericButton={handleNumericButton}
+                handleOperatorButton={handleOperatorButton}
+                handleEquals={handleEquals}
             />
         </div>
     )

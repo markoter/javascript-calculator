@@ -1,19 +1,14 @@
 import Button from "./Button"
 import buttons from "./buttonsList"
 const Keyboard = (props) => {
-    const {handleClearButton, handleNumericButton, handleOperatorButton, handleEquals, handleDecimal} = props
+    const { handleClearButton, handleNumericButton, handleOperatorButton, handleEquals, handleDecimal } = props
 
     const handleButtonClick = (className, value) => {
         //console.log(`clicked button with class: ${className} value: ${value}`)
         if (className.includes("number")) {
-            if (value === '.'){
-                handleDecimal()
-            }
-            else {
-                handleNumericButton(value)
-            }
+            handleNumericButton(value)
         }
-        else if (className.includes("operator")){
+        else if (className.includes("operator")) {
             handleOperatorButton(value)
         }
         else if (value === 'clear') {
@@ -24,17 +19,17 @@ const Keyboard = (props) => {
         }
     }
 
-    
+
     return (
         <div id="keyboard">
             {
                 buttons.map((button) => (
                     <Button
-                    key={button.id}
-                    id={button.id}
-                    value={button.value}
-                    className={button.className}
-                    handleButtonClick={handleButtonClick}
+                        key={button.id}
+                        id={button.id}
+                        value={button.value}
+                        className={button.className}
+                        handleButtonClick={handleButtonClick}
                     />
                 ))
             }

@@ -12,7 +12,11 @@ const Calculator = () => {
             changeCurrentVal(optionalZero + buttonVal)
         }
         else {
+            optionalZero = ''
             changeCurrentVal(currentVal.concat(buttonVal))
+        }
+        if (formula.charAt(formula.length -1) === '0'){
+            optionalZero = ''
         }
         changeFormula(formula.concat(optionalZero + buttonVal))
     }
@@ -34,9 +38,8 @@ const Calculator = () => {
         // console.log(result)
     }
     const handleDecimal = () => {
-  
         const buttonVal = '.'
-        if (currentVal.includes(buttonVal) === false) {
+        if (!currentVal.includes(buttonVal)) {
             console.log('no dot')
             handleNumericButton(buttonVal, 0)
         }

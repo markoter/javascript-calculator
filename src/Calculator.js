@@ -2,7 +2,7 @@ import { useState } from "react"
 import Keyboard from "./Keyboard"
 import Screen from "./Screen"
 
-const testPrinterSwitch = true
+const testPrinterSwitch = false
 const testPrinter = (message) => {
     if (testPrinterSwitch) {
         console.log('hit place number: ' + message)
@@ -12,6 +12,7 @@ const testPrinter = (message) => {
 const Calculator = () => {
     const [formula, changeFormula] = useState('')
     const [currentVal, changeCurrentVal] = useState('0')
+    const [prevVal, changePrevVal] = useState('')
 
     const handleNumericButton = (buttonVal) => {
         const isDecimalAlready = (currentVal.includes('.'))
@@ -95,6 +96,11 @@ const Calculator = () => {
     }
     const handleOperatorButton = (buttonVal) => {
         // console.log(`hit oper butt with val: ${buttonVal}`)
+        if (prevVal !=='') {
+            changeFormula(prevVal)
+            console.log("prev val is: " + prevVal)
+            console.log("formula is: " + formula)
+        }
         changeCurrentVal(buttonVal)
         changeFormula(formula.concat(buttonVal))
     }
@@ -107,7 +113,8 @@ const Calculator = () => {
         // console.log(`hit equals`)
         const result = eval(formula)
         changeCurrentVal(result)
-        // changeFormula(formula.concat('=' + result))
+        changePrevVal(result)
+        changeFormula(formula.concat('=' + result))
         // console.log(result)
     }
     return (

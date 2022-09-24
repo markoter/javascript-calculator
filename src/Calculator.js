@@ -12,7 +12,7 @@ const testPrinter = (message) => {
 const Calculator = () => {
     const [formula, changeFormula] = useState('')
     const [currentVal, changeCurrentVal] = useState('0')
-    const [prevVal, changePrevVal] = useState('')
+    const [isCalculated, changeCalculatedState] = useState(false)
 
     const handleNumericButton = (buttonVal) => {
         const isDecimalAlready = (currentVal.includes('.'))
@@ -99,13 +99,13 @@ const Calculator = () => {
         // console.log(`hit oper butt with val: ${buttonVal}`)
         changeCurrentVal(buttonVal)
 
-        if (prevVal === '') {
+        if (!isCalculated) {
             changeFormula(formula.concat(buttonVal))
 
         }
         else {
-            changeFormula(prevVal + buttonVal)
-            changePrevVal('')
+            changeFormula(currentVal + buttonVal)
+            changeCalculatedState(false)
         }
 
 
@@ -114,22 +114,22 @@ const Calculator = () => {
         // console.log(`hit clear button`)
         changeCurrentVal('0')
         changeFormula('')
-        changePrevVal('')
+        changeCalculatedState(false)
     }
     const handleEquals = () => {
         // console.log(`hit equals`)
         const result = eval(formula)
         changeCurrentVal(result.toString())
-        changePrevVal(result.toString())
         changeFormula(formula.concat('=' + result))
+        changeCalculatedState(true)
     }
     return (
         <div id="calculator">
             <p id="calcName">Calculator Online JS</p>
             <div id="debugStateDisplayer">
                 <p>currentVal is: {currentVal}</p>
-                <p>prevVal is: {prevVal}</p>
                 <p>formula is: {formula}</p>
+                <p>isCalculated is: {isCalculated.toString()}</p>
 
             </div>
             <Screen formula={formula} currentVal={currentVal} />

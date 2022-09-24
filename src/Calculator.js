@@ -15,57 +15,71 @@ const Calculator = () => {
     const [isCalculated, changeCalculatedState] = useState(false)
 
     const handleNumericButton = (buttonVal) => {
-        const isDecimalAlready = (currentVal.includes('.'))
+        let currentValTemp = '0'
+        let formulaTemp = ''
+        //start from beggining if calculated before
+        if (!isCalculated) {
+            currentValTemp = currentVal
+            formulaTemp = formula
+
+        }
+        else {
+            changeCalculatedState(false)
+        }
+        //create temp copies of state
+
+        const isDecimalAlready = (currentValTemp.includes('.'))
         const isButtonDecimal = (buttonVal === '.')
         const isButtonZero = (buttonVal === '0')
+
         if (!isDecimalAlready) {
             testPrinter('1')
             if (!isButtonDecimal) {
                 testPrinter('1-1')
-                if (['+', '-', '*', '/'].includes(currentVal)) {
+                if (['+', '-', '*', '/'].includes(currentValTemp)) {
                     testPrinter('1-1-1')
                     changeCurrentVal(buttonVal)
-                    changeFormula(formula.concat(buttonVal))
+                    changeFormula(formulaTemp.concat(buttonVal))
 
                 }
-                else if (currentVal === '0') {
+                else if (currentValTemp === '0') {
                     testPrinter('1-1-2')
                     changeCurrentVal(buttonVal)
                     if (!isButtonZero) {
                         testPrinter('1-1-2-1')
-                        changeFormula(formula.concat(buttonVal))
+                        changeFormula(formulaTemp.concat(buttonVal))
                     }
                 }
                 else {
                     testPrinter('1-1-3')
-                    changeCurrentVal(currentVal.concat(buttonVal))
-                    changeFormula(formula.concat(buttonVal))
+                    changeCurrentVal(currentValTemp.concat(buttonVal))
+                    changeFormula(formulaTemp.concat(buttonVal))
                 }
             }
             else { //not decimalAlready and button is Decimal
                 testPrinter('1-2')
-                if (['+', '-', '*', '/'].includes(currentVal)) {
+                if (['+', '-', '*', '/'].includes(currentValTemp)) {
                     testPrinter('1-2-1')
                     changeCurrentVal('0' + buttonVal)
-                    changeFormula(formula.concat('0' + buttonVal))
+                    changeFormula(formulaTemp.concat('0' + buttonVal))
 
                 }
-                else if (currentVal === '0') {
+                else if (currentValTemp === '0') {
                     testPrinter('1-2-2')
                     changeCurrentVal('0' + buttonVal)
-                    if (formula.charAt(formula.length - 1) === '0') {
+                    if (formulaTemp.charAt(formulaTemp.length - 1) === '0') {
                         testPrinter('1-2-2-1')
-                        changeFormula(formula.concat(buttonVal))
+                        changeFormula(formulaTemp.concat(buttonVal))
                     }
                     else {
                         testPrinter('1-2-2-2')
-                        changeFormula(formula.concat('0' + buttonVal))
+                        changeFormula(formulaTemp.concat('0' + buttonVal))
                     }
                 }
                 else {
                     testPrinter('1-2-3')
-                    changeCurrentVal(currentVal.concat(buttonVal))
-                    changeFormula(formula.concat(buttonVal))
+                    changeCurrentVal(currentValTemp.concat(buttonVal))
+                    changeFormula(formulaTemp.concat(buttonVal))
                 }
             }
 
@@ -75,25 +89,25 @@ const Calculator = () => {
             //decimal already
             if (!isButtonDecimal) {
                 testPrinter('2-1')
-                if (['+', '-', '*', '/'].includes(currentVal)) {
+                if (['+', '-', '*', '/'].includes(currentValTemp)) {
                     changeCurrentVal(buttonVal)
-                    changeFormula(formula.concat(buttonVal))
+                    changeFormula(formulaTemp.concat(buttonVal))
 
                 }
-                else if (currentVal === '0') {
+                else if (currentValTemp === '0') {
                     testPrinter('2-2')
                     changeCurrentVal(buttonVal)
-                    changeFormula(formula.concat(buttonVal))
+                    changeFormula(formulaTemp.concat(buttonVal))
                 }
                 else {
                     testPrinter('2-3')
-                    changeCurrentVal(currentVal.concat(buttonVal))
-                    changeFormula(formula.concat(buttonVal))
+                    changeCurrentVal(currentValTemp.concat(buttonVal))
+                    changeFormula(formulaTemp.concat(buttonVal))
                 }
             }
 
         }
-        console.log("tututu" + currentVal)
+        console.log("tututu" + currentValTemp)
     }
     const handleOperatorButton = (buttonVal) => {
         // console.log(`hit oper butt with val: ${buttonVal}`)

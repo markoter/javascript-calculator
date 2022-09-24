@@ -104,9 +104,10 @@ const Calculator = () => {
 
         }
         else {
-            changeFormula(prevVal)
+            changeFormula(prevVal + buttonVal)
             changePrevVal('')
         }
+
 
     }
     const handleClearButton = () => {
@@ -127,7 +128,7 @@ const Calculator = () => {
             <p id="calcName">Calculator Online JS</p>
             <div id="debugStateDisplayer">
                 <p>currentVal is: {currentVal}</p>
-                <p>prevVal is {prevVal}</p>
+                <p>prevVal is: {prevVal}</p>
                 <p>formula is: {formula}</p>
 
             </div>
@@ -138,7 +139,7 @@ const Calculator = () => {
                 handleOperatorButton={handleOperatorButton}
                 handleEquals={handleEquals}
             />
-            
+
         </div>
     )
 }

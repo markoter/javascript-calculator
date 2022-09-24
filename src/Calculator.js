@@ -2,7 +2,7 @@ import { useState } from "react"
 import Keyboard from "./Keyboard"
 import Screen from "./Screen"
 
-const testPrinterSwitch = false
+const testPrinterSwitch = true
 const testPrinter = (message) => {
     if (testPrinterSwitch) {
         console.log('hit place number: ' + message)
@@ -93,33 +93,44 @@ const Calculator = () => {
             }
 
         }
+        console.log("tututu" + currentVal)
     }
     const handleOperatorButton = (buttonVal) => {
         // console.log(`hit oper butt with val: ${buttonVal}`)
-        if (prevVal !=='') {
-            changeFormula(prevVal)
-            console.log("prev val is: " + prevVal)
-            console.log("formula is: " + formula)
-        }
         changeCurrentVal(buttonVal)
-        changeFormula(formula.concat(buttonVal))
+
+        if (prevVal === '') {
+            changeFormula(formula.concat(buttonVal))
+
+        }
+        else {
+            changeFormula(prevVal)
+            changePrevVal('')
+        }
+
     }
     const handleClearButton = () => {
         // console.log(`hit clear button`)
         changeCurrentVal('0')
         changeFormula('')
+        changePrevVal('')
     }
     const handleEquals = () => {
         // console.log(`hit equals`)
         const result = eval(formula)
-        changeCurrentVal(result)
-        changePrevVal(result)
+        changeCurrentVal(result.toString())
+        changePrevVal(result.toString())
         changeFormula(formula.concat('=' + result))
-        // console.log(result)
     }
     return (
         <div id="calculator">
             <p id="calcName">Calculator Online JS</p>
+            <div id="debugStateDisplayer">
+                <p>currentVal is: {currentVal}</p>
+                <p>prevVal is {prevVal}</p>
+                <p>formula is: {formula}</p>
+
+            </div>
             <Screen formula={formula} currentVal={currentVal} />
             <Keyboard
                 handleClearButton={handleClearButton}
@@ -127,6 +138,7 @@ const Calculator = () => {
                 handleOperatorButton={handleOperatorButton}
                 handleEquals={handleEquals}
             />
+            
         </div>
     )
 }

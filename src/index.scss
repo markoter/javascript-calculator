@@ -35,7 +35,8 @@ body {
   color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;
-  width: 40vw;
+  max-width: 500px;
+  width: 90vw;
   height: fit-content;
 
   #calcName {
@@ -98,5 +99,5 @@ body {
 
 }
 #debugStateDisplayer {
-  
+    display:none
 }

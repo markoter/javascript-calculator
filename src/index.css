@@ -27,7 +27,8 @@ body {
   color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;
-  width: 40vw;
+  max-width: 500px;
+  width: 90vw;
   height: fit-content;
 }
 #calculator #calcName {
@@ -76,4 +77,8 @@ body {
 }
 #calculator #keyboard .operator {
   background-color: var(--color-button-operators);
+}
+
+#debugStateDisplayer {
+  display: none;
 }/*# sourceMappingURL=index.css.map */

@@ -141,7 +141,9 @@ const Calculator = () => {
     }
     const handleEquals = () => {
         // console.log(`hit equals`)
-        const result = eval(formula)
+        let formulaTemp = formula.replace('--', '+')
+
+        const result = eval(formulaTemp)
         changeCurrentVal(result.toString())
         changeFormula(formula.concat('=' + result))
         changeCalculatedState(true)

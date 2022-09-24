@@ -2,7 +2,7 @@ import { useState } from "react"
 import Keyboard from "./Keyboard"
 import Screen from "./Screen"
 
-const testPrinterSwitch = true
+const testPrinterSwitch = false
 const testPrinter = (message) => {
     if (testPrinterSwitch) {
         console.log('hit place number: ' + message)
@@ -114,7 +114,16 @@ const Calculator = () => {
         changeCurrentVal(buttonVal)
 
         if (!isCalculated) {
-            changeFormula(formula.concat(buttonVal))
+            if (buttonVal === '-') {
+                changeFormula(formula.concat(buttonVal))
+            }
+            else {
+                let formulaTemp = formula
+                console.log("to jest formula temp: " + formulaTemp)
+                formulaTemp = trimOperatorsFromEnd(formulaTemp)
+                console.log(formulaTemp)
+                changeFormula(formulaTemp.concat(buttonVal))
+            }
 
         }
         else {
@@ -137,6 +146,18 @@ const Calculator = () => {
         changeFormula(formula.concat('=' + result))
         changeCalculatedState(true)
     }
+
+    const trimOperatorsFromEnd = (str) => {
+        const endsWithOperator = ['+', '-', '*', '/'].includes(str.slice(-1))
+        if (!endsWithOperator) {
+            console.log(str)
+            return str
+        }
+        else {
+             return trimOperatorsFromEnd(str.slice(0, -1))
+        }
+    }
+
     return (
         <div id="calculator">
             <p id="calcName">Calculator Online JS</p>

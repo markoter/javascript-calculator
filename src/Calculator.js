@@ -142,7 +142,7 @@ const Calculator = () => {
     const handleEquals = () => {
         let formulaTemp = formula.replace('--', '+')
         if (/[0-9]/.test(formulaTemp)) {
-            const result = eval(formulaTemp)
+            const result = eval(trimOperatorsFromEnd(formulaTemp))
             changeCurrentVal(result.toString())
             changeFormula(formula.concat('=' + result))
             changeCalculatedState(true)

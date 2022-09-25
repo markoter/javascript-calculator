@@ -68,10 +68,16 @@ body {
       align-self: stretch;
       color: var(--color-text-buttons);
       background: none;
+      // background-color: var(--color-button);
       border: none;
       font-size: 2rem;
       // width: fit-content;
       // height: fit-content;
+      .material-symbols-outlined {
+        font-size: 3rem;
+        justify-self: center;
+        align-self: center;
+      }
     }
   }
   #screen {

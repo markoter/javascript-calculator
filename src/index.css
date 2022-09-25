@@ -68,6 +68,11 @@ body {
   border: none;
   font-size: 2rem;
 }
+#calculator #calc-header #theme-btn .material-symbols-outlined {
+  font-size: 3rem;
+  justify-self: center;
+  align-self: center;
+}
 #calculator #screen {
   background-color: var(--color-screen);
   margin: 10px 0 10px 0;

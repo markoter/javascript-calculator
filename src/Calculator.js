@@ -151,7 +151,7 @@ const Calculator = () => {
                 <button
                     id="theme-btn"
                     onClick={() => changeTheme()}>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         star_half
                     </span>
                 </button>

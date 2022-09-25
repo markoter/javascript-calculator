@@ -12,8 +12,8 @@
   --color-text-formula: #d1d8e0;
   --color-text-buttons: #d1d8e0;
   --font-family: 'Roboto', sans-serif;
-  --font-size-display: 5.5rem;
-  --font-size-formula: 3rem;
+  --font-size-display: 5rem;
+  --font-size-formula: 2.5rem;
 
 }
 
@@ -45,7 +45,6 @@ body {
 
 #calculator {
   font-family: var(--font-family);
-
   color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;

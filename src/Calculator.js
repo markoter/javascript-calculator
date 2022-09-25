@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Keyboard from "./Keyboard"
 import Screen from "./Screen"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Calculator = () => {
     const [formula, changeFormula] = useState('')
@@ -152,7 +151,9 @@ const Calculator = () => {
                 <button
                     id="theme-btn"
                     onClick={() => changeTheme()}>
-                    <FontAwesomeIcon icon="fa-solid fa-circle-half-stroke" />
+                    <span class="material-symbols-outlined">
+                        star_half
+                    </span>
                 </button>
             </div>
             <Screen formula={formula} currentVal={currentVal} />

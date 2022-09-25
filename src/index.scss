@@ -67,7 +67,10 @@ body {
     #theme-btn {
       justify-self: stretch;
       align-self: stretch;
-      color: red;
+      color: var(--color-text-buttons);
+      background: none;
+      border: none;
+      font-size: 2rem;
       // width: fit-content;
       // height: fit-content;
     }

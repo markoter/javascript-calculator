@@ -18,7 +18,6 @@ const Keyboard = (props) => {
         }
     }
 
-
     return (
         <div id="keyboard">
             {
@@ -32,7 +31,6 @@ const Keyboard = (props) => {
                     />
                 ))
             }
-
         </div>
     )
 }

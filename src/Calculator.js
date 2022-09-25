@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Keyboard from "./Keyboard"
 import Screen from "./Screen"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Calculator = () => {
     const [formula, changeFormula] = useState('')
@@ -84,6 +85,7 @@ const Calculator = () => {
             }
         }
     }
+
     const handleOperatorButton = (buttonVal) => {
         changeCurrentVal(buttonVal)
 
@@ -102,6 +104,7 @@ const Calculator = () => {
             changeCalculatedState(false)
         }
     }
+
     const handleClearButton = () => {
         changeCurrentVal('0')
         changeFormula('')
@@ -136,9 +139,22 @@ const Calculator = () => {
         }
     }
 
+    //change style
+    const changeTheme = () => {
+        const calc = document.getElementById("body")
+        calc.classList.toggle("old-school")
+    }
+
     return (
         <div id="calculator">
-            <p id="calcName">Calculator Online JS</p>
+            <div id="calc-header">
+                <p id="calc-name">JavaScript Calculator</p>
+                <button
+                    id="theme-btn"
+                    onClick={() => changeTheme()}>
+                    <FontAwesomeIcon icon="fa-solid fa-circle-half-stroke" />
+                </button>
+            </div>
             <Screen formula={formula} currentVal={currentVal} />
             <Keyboard
                 handleClearButton={handleClearButton}
@@ -146,7 +162,6 @@ const Calculator = () => {
                 handleOperatorButton={handleOperatorButton}
                 handleEquals={handleEquals}
             />
-
         </div>
     )
 }

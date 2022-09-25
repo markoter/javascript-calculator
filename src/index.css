@@ -53,11 +53,10 @@ body {
 }
 #calculator #calc-header {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 6fr 1fr;
 }
 #calculator #calc-header #calc-name {
   font-size: 1.5rem;
-  grid-column-start: 2;
   text-align: center;
 }
 #calculator #calc-header #theme-btn {

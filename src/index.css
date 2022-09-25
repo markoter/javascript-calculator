@@ -27,6 +27,7 @@ body {
   color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;
+  margin: 10px;
   max-width: 500px;
   width: 90vw;
   height: fit-content;

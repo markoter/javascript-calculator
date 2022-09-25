@@ -27,14 +27,11 @@ body {
   justify-content: center;
 }
 
-* {
-  // border: 2px solid black;
-}
-
 #calculator {
   color: var(--color-text-buttons);
   background-color: var(--color-calculator);
   padding: 10px;
+  margin: 10px;
   max-width: 500px;
   width: 90vw;
   height: fit-content;
@@ -97,7 +94,4 @@ body {
     }
   }
 
-}
-#debugStateDisplayer {
-    // display:none
 }

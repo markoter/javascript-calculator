@@ -78,7 +78,7 @@ body {
   #screen {
     background-color: var(--color-screen);
     margin: 10px 0 10px 0;
-    height: 20vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -88,11 +88,15 @@ body {
     #formula {
       font-size: var(--font-size-formula);
       color: var(--color-text-formula);
+      word-wrap: break-word;
+      min-height: 10vh;
     }
 
     #display {
       font-size: var(--font-size-display);
       color: var(--color-text-display);
+      word-wrap: break-word;
+      min-height: 10vh;
     }
   }
 

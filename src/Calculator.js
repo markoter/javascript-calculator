@@ -140,13 +140,18 @@ const Calculator = () => {
         changeCalculatedState(false)
     }
     const handleEquals = () => {
-        // console.log(`hit equals`)
         let formulaTemp = formula.replace('--', '+')
-
-        const result = eval(formulaTemp)
-        changeCurrentVal(result.toString())
-        changeFormula(formula.concat('=' + result))
-        changeCalculatedState(true)
+        if (/[0-9]/.test(formulaTemp)) {
+            const result = eval(formulaTemp)
+            changeCurrentVal(result.toString())
+            changeFormula(formula.concat('=' + result))
+            changeCalculatedState(true)
+        }
+        else {
+            changeCurrentVal("NaN")
+            changeFormula('')
+        }
+        
     }
 
     const trimOperatorsFromEnd = (str) => {

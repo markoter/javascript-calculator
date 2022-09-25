@@ -77,8 +77,4 @@ body {
 }
 #calculator #keyboard .operator {
   background-color: var(--color-button-operators);
-}
-
-#debugStateDisplayer {
-  display: none;
 }/*# sourceMappingURL=index.css.map */
